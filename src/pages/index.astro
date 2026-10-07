@@ -9,35 +9,72 @@ import Space from '../components/Space.astro';
 import Stay from '../components/Stay.astro';
 import Base from '../layouts/Base.astro';
 
-const title = 'ALIYA Guesthouse | 大正駅徒歩1分の一棟貸し';
+const title = 'ALIYA Guesthouse | 大阪・大正駅徒歩1分の一棟貸し';
 const description =
-	'大阪市大正区、大正駅徒歩1分。リビングとキッチン、2階の寝室までを貸し切るゲストハウス ALIYA。OSAKA STAY認定の民泊です。';
+	'大阪市大正区三軒家東、JR大阪環状線・大阪メトロ大正駅から徒歩1分の一棟貸し。チェックイン16:00、チェックアウト11:00。OSAKA STAY認定のゲストハウス ALIYA。';
+
+const origin = Astro.site ?? new URL('https://aliya-guesthouse.pages.dev');
+const pageUrl = new URL('/', origin).href;
+const imageUrl = new URL('/ogp.jpg', origin).href;
+const amenities = [
+	'キッチン',
+	'無線LAN',
+	'洗濯機',
+	'乾燥機',
+	'エアコン',
+	'テレビ',
+	'セルフチェックイン',
+];
 
 const jsonLd = {
 	'@context': 'https://schema.org',
-	'@type': 'LodgingBusiness',
-	name: 'ALIYA Guesthouse',
-	description,
-	telephone: '+81-90-3674-4149',
-	checkinTime: '16:00',
-	checkoutTime: '11:00',
-	address: {
-		'@type': 'PostalAddress',
-		postalCode: '551-0002',
-		addressRegion: '大阪府',
-		addressLocality: '大阪市大正区',
-		streetAddress: '三軒家東1-16-25',
-		addressCountry: 'JP',
-	},
-	sameAs: [
-		'https://travel.rakuten.co.jp/HOTEL/201052/201052.html',
-		'https://www.airbnb.jp/rooms/34743821',
-	],
-	amenityFeature: [
-		{ '@type': 'LocationFeatureSpecification', name: 'Kitchen', value: true },
-		{ '@type': 'LocationFeatureSpecification', name: 'Wifi', value: true },
-		{ '@type': 'LocationFeatureSpecification', name: 'Washer', value: true },
-		{ '@type': 'LocationFeatureSpecification', name: 'Air conditioning', value: true },
+	'@graph': [
+		{
+			'@type': 'WebSite',
+			'@id': `${pageUrl}#website`,
+			url: pageUrl,
+			name: 'ALIYA Guesthouse',
+			description,
+			inLanguage: 'ja',
+			publisher: { '@id': `${pageUrl}#lodging` },
+		},
+		{
+			'@type': 'LodgingBusiness',
+			'@id': `${pageUrl}#lodging`,
+			name: 'ALIYA Guesthouse',
+			description,
+			url: pageUrl,
+			image: imageUrl,
+			telephone: '+81-90-3674-4149',
+			checkinTime: '16:00',
+			checkoutTime: '11:00',
+			currenciesAccepted: 'JPY',
+			address: {
+				'@type': 'PostalAddress',
+				postalCode: '551-0002',
+				addressRegion: '大阪府',
+				addressLocality: '大阪市大正区',
+				streetAddress: '三軒家東1-16-25',
+				addressCountry: 'JP',
+			},
+			sameAs: [
+				'https://travel.rakuten.co.jp/HOTEL/201052/201052.html',
+				'https://www.airbnb.jp/rooms/34743821',
+			],
+			amenityFeature: [
+				...amenities.map((name) => ({
+					'@type': 'LocationFeatureSpecification',
+					name,
+					value: true,
+				})),
+				{ '@type': 'LocationFeatureSpecification', name: '駐車場', value: false },
+			],
+			potentialAction: {
+				'@type': 'ReserveAction',
+				name: '予約する',
+				target: `${pageUrl}#reserve`,
+			},
+		},
 	],
 };
 ---

@@ -456,6 +456,12 @@ ol {
 	text-transform: uppercase;
 }
 
+.hero__title,
+.hero__sub,
+.hero__lead {
+	display: block;
+}
+
 .hero__title {
 	margin-top: 0.35rem;
 	font-family: var(--serif);

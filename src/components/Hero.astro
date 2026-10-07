@@ -64,8 +64,8 @@ const slides = [
 						sizes="100vw"
 						quality={74}
 						format="webp"
-						loading="eager"
-						fetchpriority={index === 0 ? 'high' : 'auto'}
+						priority={index === 0}
+						loading={index === 0 ? 'eager' : 'lazy'}
 						class="hero__img"
 					/>
 				</div>
@@ -76,9 +76,11 @@ const slides = [
 	<div class="hero__content">
 		<div class="hero__copy">
 			<p class="hero__eyebrow hero__reveal">Taisho, Osaka</p>
-			<h1 class="hero__title hero__reveal">ALIYA</h1>
-			<p class="hero__sub hero__reveal">Guesthouse</p>
-			<p class="hero__lead hero__reveal">大正駅から、徒歩1分。</p>
+			<h1 class="hero__heading">
+				<span class="hero__title hero__reveal">ALIYA</span>
+				<span class="hero__sub hero__reveal">Guesthouse</span>
+				<span class="hero__lead hero__reveal">大正駅から、徒歩1分。</span>
+			</h1>
 		</div>
 		<div class="hero__index">
 			<p class="hero__count" aria-live="polite">
