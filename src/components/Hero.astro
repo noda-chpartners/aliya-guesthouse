@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets';
+import entrance from '../assets/images/cf9324a2-f868-4a26-a5d7-ad6452a0a6a4.jpg';
+import certified from '../assets/images/6d19f92f-ba09-4f4d-92bd-36ffea29edf6.jpg';
+import chairs from '../assets/images/ba5aff51-4d97-4591-b956-509bcea55061.avif';
+import living from '../assets/images/3bfcccb2-d02f-4b01-9982-95e8dd2d37cf.avif';
+import loft from '../assets/images/1acb1f93-bfc1-43a7-b63e-2c414d8b40ef.avif';
+import cups from '../assets/images/eeef6c77-daae-473b-89dc-febd4665d9eb.avif';
+
+const slides = [
+	{
+		src: entrance,
+		alt: 'レンガ壁の表札と、黒いランタン、白い玄関扉',
+		focus: 'center 42%',
+		widths: [720, 1280, 1920, 2400],
+	},
+	{
+		src: certified,
+		alt: '玄関扉に貼られたOSAKA STAY認定のステッカー',
+		focus: '72% center',
+		widths: [720, 1200, 1680],
+	},
+	{
+		src: chairs,
+		alt: 'グレーの壁と黒いチェア、奥にキッチンが見えるリビング',
+		focus: 'center',
+		widths: [720, 1200, 1680],
+	},
+	{
+		src: living,
+		alt: 'ペンダントライトとテレビのあるリビング',
+		focus: 'center',
+		widths: [720, 1200, 1680],
+	},
+	{
+		src: loft,
+		alt: '木の手すり越しに見える、縞模様のロフトベッド',
+		focus: '70% center',
+		widths: [720, 1200, 1680],
+	},
+	{
+		src: cups,
+		alt: '木のテーブルに置かれた星柄のマグカップ',
+		focus: 'center',
+		widths: [720, 1200, 1680],
+	},
+];
+---
+
+<section class="hero" id="top" aria-roledescription="カルーセル" aria-label="ALIYAの写真" data-hero>
+	<div class="hero__slides">
+		{
+			slides.map((slide, index) => (
+				<div
+					class="hero__slide"
+					data-hero-slide
+					style={`--focus:${slide.focus}`}
+					aria-hidden={index === 0 ? 'false' : 'true'}
+				>
+					<Image
+						src={slide.src}
+						alt={slide.alt}
+						widths={slide.widths}
+						sizes="100vw"
+						quality={74}
+						format="webp"
+						loading="eager"
+						fetchpriority={index === 0 ? 'high' : 'auto'}
+						class="hero__img"
+					/>
+				</div>
+			))
+		}
+	</div>
+	<div class="hero__shade" aria-hidden="true"></div>
+	<div class="hero__content">
+		<div class="hero__copy">
+			<p class="hero__eyebrow hero__reveal">Taisho, Osaka</p>
+			<h1 class="hero__title hero__reveal">ALIYA</h1>
+			<p class="hero__sub hero__reveal">Guesthouse</p>
+			<p class="hero__lead hero__reveal">大正駅から、徒歩1分。</p>
+		</div>
+		<div class="hero__index">
+			<p class="hero__count" aria-live="polite">
+				<span data-hero-current>01</span><span> / 06</span>
+			</p>
+			<div class="hero__dots" role="tablist" aria-label="写真の選択">
+				{
+					slides.map((slide, index) => (
+						<button
+							type="button"
+							role="tab"
+							aria-selected={index === 0 ? 'true' : 'false'}
+							aria-label={`${index + 1}枚目：${slide.alt}`}
+							class:list={[{ 'is-active': index === 0 }]}
+							data-hero-dot
+						/>
+					))
+				}
+			</div>
+			<button class="hero__toggle" type="button" aria-pressed="false" data-hero-toggle>
+				停止
+			</button>
+			<div class="hero__scroll" aria-hidden="true">
+				<span>Scroll</span>
+				<i></i>
+			</div>
+		</div>
+	</div>
+</section>

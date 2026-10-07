@@ -1,16 +1,57 @@
 ---
+import About from '../components/About.astro';
+import Access from '../components/Access.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Reserve from '../components/Reserve.astro';
+import Space from '../components/Space.astro';
+import Stay from '../components/Stay.astro';
+import Base from '../layouts/Base.astro';
+
+const title = 'ALIYA Guesthouse | 大正駅徒歩1分の一棟貸し';
+const description =
+	'大阪市大正区、大正駅徒歩1分。リビングとキッチン、2階の寝室までを貸し切るゲストハウス ALIYA。OSAKA STAY認定の民泊です。';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'LodgingBusiness',
+	name: 'ALIYA Guesthouse',
+	description,
+	telephone: '+81-90-3674-4149',
+	checkinTime: '16:00',
+	checkoutTime: '11:00',
+	address: {
+		'@type': 'PostalAddress',
+		postalCode: '551-0002',
+		addressRegion: '大阪府',
+		addressLocality: '大阪市大正区',
+		streetAddress: '三軒家東1-16-25',
+		addressCountry: 'JP',
+	},
+	sameAs: [
+		'https://travel.rakuten.co.jp/HOTEL/201052/201052.html',
+		'https://www.airbnb.jp/rooms/34743821',
+	],
+	amenityFeature: [
+		{ '@type': 'LocationFeatureSpecification', name: 'Kitchen', value: true },
+		{ '@type': 'LocationFeatureSpecification', name: 'Wifi', value: true },
+		{ '@type': 'LocationFeatureSpecification', name: 'Washer', value: true },
+		{ '@type': 'LocationFeatureSpecification', name: 'Air conditioning', value: true },
+	],
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title={title} description={description}>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} slot="head" />
+	<Header />
+	<main id="main">
+		<Hero />
+		<About />
+		<Space />
+		<Stay />
+		<Access />
+		<Reserve />
+	</main>
+	<Footer />
+</Base>

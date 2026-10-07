@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+---
+
+<header class="header" data-header>
+	<a class="logo" href="#top">
+		<Icon name="house" />
+		<span class="logo__text">
+			<span class="logo__name">ALIYA</span>
+			<span class="logo__sub">Guesthouse</span>
+		</span>
+	</a>
+	<nav class="header__nav" aria-label="主要">
+		<a href="#about">宿</a>
+		<a href="#space">空間</a>
+		<a href="#stay">滞在</a>
+		<a href="#access">アクセス</a>
+	</nav>
+	<a class="header__cta" href="#reserve">予約</a>
+	<button
+		class="nav-toggle"
+		type="button"
+		aria-expanded="false"
+		aria-controls="menu"
+		data-menu-toggle
+	>
+		<span class="nav-toggle__icon" aria-hidden="true"></span>
+		<span class="sr-only">メニューを開く</span>
+	</button>
+</header>
+<div class="menu" id="menu" aria-hidden="true" data-menu>
+	<nav class="menu__nav" aria-label="メニュー">
+		<a href="#about" data-menu-item>宿</a>
+		<a href="#space" data-menu-item>空間</a>
+		<a href="#stay" data-menu-item>滞在</a>
+		<a href="#access" data-menu-item>アクセス</a>
+		<a href="#reserve" data-menu-item>予約</a>
+	</nav>
+	<p class="menu__meta" data-menu-item>
+		<a href="tel:+819036744149">090-3674-4149</a>
+		<span>大正駅 徒歩1分</span>
+	</p>
+</div>

@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+
+const rakuten = 'https://travel.rakuten.co.jp/HOTEL/201052/201052.html?scid=we_oth_iap_share';
+const airbnb = 'https://www.airbnb.jp/rooms/34743821';
+---
+
+<section class="section reserve" id="reserve">
+	<div class="wrap">
+		<SectionHead num="05" en="Reserve" title="この家を予約する。" light>
+			<p class="sec-lead">料金と空き状況は、各予約サイトでご確認ください。</p>
+		</SectionHead>
+		<div class="reserve__list">
+			<a class="reserve__link" href={rakuten} target="_blank" rel="noopener noreferrer" data-reveal>
+				<span>
+					<small>Rakuten Travel</small>
+					楽天トラベルで見る
+				</span>
+				<Icon name="arrow" />
+			</a>
+			<a class="reserve__link" href={airbnb} target="_blank" rel="noopener noreferrer" data-reveal>
+				<span>
+					<small>Airbnb</small>
+					Airbnbで見る
+				</span>
+				<Icon name="arrow" />
+			</a>
+		</div>
+		<p class="reserve__phone" data-reveal>
+			お電話
+			<a href="tel:+819036744149">090-3674-4149</a>
+		</p>
+		<p class="reserve__note" data-reveal>
+			キャンセル条件は、予約サイトの表記に従います。
+		</p>
+	</div>
+</section>

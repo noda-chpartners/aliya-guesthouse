@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import plan from '../assets/images/IMG_2251.jpg';
+
+const amenities = [
+	{ icon: 'kitchen' as const, name: 'キッチン', detail: 'IH、調理器具、食器' },
+	{ icon: 'fridge' as const, name: '家電', detail: '冷蔵庫、電子レンジ、電気ケトル' },
+	{ icon: 'washer' as const, name: '洗濯', detail: '洗濯機、乾燥機' },
+	{ icon: 'bath' as const, name: '水まわり', detail: 'バスルーム、洗面、温水洗浄便座' },
+	{ icon: 'air' as const, name: '室内', detail: 'エアコン、テレビ、無線LAN' },
+	{ icon: 'bottle' as const, name: 'アメニティ', detail: '石鹸、シャンプー、ハミガキセット' },
+	{ icon: 'key' as const, name: '入室', detail: 'キーパッドによるセルフチェックイン' },
+	{ icon: 'pin' as const, name: '駐車場', detail: 'なし' },
+];
+---
+
+<section class="section stay" id="stay">
+	<div class="wrap">
+		<SectionHead num="03" en="Stay" title="着いてから、出るまで。">
+			<p class="sec-lead">一組だけの貸し切りです。</p>
+		</SectionHead>
+		<dl class="facts">
+			<div data-reveal>
+				<dt>チェックイン</dt>
+				<dd class="facts__value">16:00</dd>
+				<p class="facts__note">最終 23:00</p>
+			</div>
+			<div data-reveal>
+				<dt>チェックアウト</dt>
+				<dd class="facts__value">11:00</dd>
+			</div>
+			<div data-reveal>
+				<dt>形式</dt>
+				<dd class="facts__value facts__value--jp">一棟</dd>
+			</div>
+			<div data-reveal>
+				<dt>駐車場</dt>
+				<dd class="facts__value facts__value--jp">なし</dd>
+			</div>
+		</dl>
+		<div class="plan">
+			<figure class="plan__sheet" data-reveal>
+				<a href={plan.src} target="_blank" rel="noopener noreferrer" aria-label="間取り図を拡大して見る">
+					<Image
+						src={plan}
+						alt="1階はリビング、キッチン、浴室、洗面、トイレ、洗濯機。2階はベッドが並ぶ間取り図"
+						widths={[480, 784]}
+						sizes="(min-width: 900px) 42vw, 100vw"
+						quality={88}
+						format="webp"
+						loading="lazy"
+					/>
+				</a>
+				<figcaption>間取り図</figcaption>
+			</figure>
+			<div class="plan__copy" data-reveal>
+				<h3>ベッドは、2階です。</h3>
+				<ul class="beds">
+					<li>
+						<Icon name="bed" />
+						<span>セミダブル<span>120 × 195 cm</span></span>
+					</li>
+					<li>
+						<Icon name="bed" />
+						<span>シングル<span>97 × 195 cm</span></span>
+					</li>
+					<li>
+						<Icon name="bed" />
+						<span>ロフト シングル<span>97 × 195 cm</span></span>
+					</li>
+					<li>
+						<Icon name="bed" />
+						<span>二段ロフト シングル 2台<span>97 × 195 cm</span></span>
+					</li>
+				</ul>
+				<p class="plan__floor">1階はリビング、キッチン、水まわり。キーパッドで入室します。</p>
+			</div>
+		</div>
+		<ul class="amenity">
+			{
+				amenities.map((item) => (
+					<li data-reveal>
+						<Icon name={item.icon} />
+						<div>
+							<p class="amenity__name">{item.name}</p>
+							<p class="amenity__detail">{item.detail}</p>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

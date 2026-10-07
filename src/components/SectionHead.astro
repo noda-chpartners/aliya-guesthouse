@@ -1,0 +1,16 @@
+---
+interface Props {
+	num: string;
+	en: string;
+	title: string;
+	light?: boolean;
+}
+
+const { num, en, title, light = false } = Astro.props;
+---
+
+<div class:list={['sec-head', { 'is-light': light }]} data-reveal>
+	<p class="sec-label"><span>{num}</span>{en}</p>
+	<h2 class="sec-title">{title}</h2>
+	<slot />
+</div>

@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import stairs from '../assets/images/IMG_2261.jpg';
+---
+
+<section class="section about" id="about">
+	<div class="wrap">
+		<SectionHead num="01" en="House" title="改札を出て、すぐに家がある。" />
+		<div class="about__body">
+			<figure class="media about__photo" style="--focus: center 42%" data-reveal>
+				<Image
+					src={stairs}
+					alt="白いレンガの壁に沿う、木の階段"
+					widths={[400, 700]}
+					sizes="(min-width: 900px) 38vw, 100vw"
+					quality={76}
+					format="webp"
+					loading="lazy"
+				/>
+				<figcaption>階段</figcaption>
+			</figure>
+			<div class="about__copy" data-reveal>
+				<p class="about__minute">
+					<span class="about__minute-num">1</span>
+					<span class="about__minute-unit">分<br />大正駅から</span>
+				</p>
+				<p>南口、または2番出口。レンガの壁に、ALIYAの表札があります。</p>
+				<p>リビングから寝室まで、一組だけの家です。</p>
+				<ul class="pills">
+					<li>一棟貸し</li>
+					<li>OSAKA STAY 認定</li>
+					<li>セルフチェックイン</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

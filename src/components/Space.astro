@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import SectionHead from './SectionHead.astro';
+import living from '../assets/images/3bfcccb2-d02f-4b01-9982-95e8dd2d37cf.avif';
+import loft from '../assets/images/1acb1f93-bfc1-43a7-b63e-2c414d8b40ef.avif';
+import cups from '../assets/images/eeef6c77-daae-473b-89dc-febd4665d9eb.avif';
+import kitchen from '../assets/images/IMG_2255.jpg';
+import vanity from '../assets/images/IMG_2247.jpg';
+import bath from '../assets/images/IMG_2249.jpg';
+---
+
+<section class="section space" id="space">
+	<div class="wrap-wide">
+		<SectionHead num="02" en="Space" title="木の床に、灯る夜。">
+			<p class="sec-lead">1階で過ごし、2階で眠ります。</p>
+		</SectionHead>
+		<div class="gallery">
+			<div class="gallery__top">
+				<figure class="media" data-reveal>
+					<Image
+						src={living}
+						alt="ペンダントライト、黒いチェア、奥にテレビがあるリビング"
+						widths={[640, 960, 1280, 1680]}
+						sizes="(min-width: 900px) 58vw, 100vw"
+						quality={75}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>リビング</figcaption>
+				</figure>
+				<figure class="media" style="--focus: 72% center" data-reveal>
+					<Image
+						src={loft}
+						alt="木の柵の向こうに敷かれた、縞模様のベッド"
+						widths={[640, 960, 1280, 1680]}
+						sizes="(min-width: 900px) 42vw, 100vw"
+						quality={75}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>ロフト</figcaption>
+				</figure>
+			</div>
+			<div class="gallery__mid">
+				<figure class="media" data-reveal>
+					<Image
+						src={cups}
+						alt="ダイニングテーブルの星柄と縞柄のマグカップ"
+						widths={[640, 960, 1400]}
+						sizes="(min-width: 900px) 62vw, 100vw"
+						quality={75}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>ダイニング</figcaption>
+				</figure>
+				<div class="gallery__note" data-reveal>
+					<p class="sec-label"><span>02</span>Kitchen</p>
+					<p>鍋も皿も、最初から揃っています。</p>
+				</div>
+			</div>
+			<div class="gallery__bottom">
+				<figure class="media" data-reveal>
+					<Image
+						src={kitchen}
+						alt="IHコンロとシンク、白い食器棚のキッチン"
+						widths={[400, 680]}
+						sizes="(min-width: 900px) 30vw, 100vw"
+						quality={76}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>キッチン</figcaption>
+				</figure>
+				<figure class="media" style="--focus: center 40%" data-reveal>
+					<Image
+						src={vanity}
+						alt="洗面台とタオル、奥に浴室がある洗面所"
+						widths={[400, 680]}
+						sizes="(min-width: 900px) 30vw, 100vw"
+						quality={76}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>洗面</figcaption>
+				</figure>
+				<figure class="media" style="--focus: center 45%" data-reveal>
+					<Image
+						src={bath}
+						alt="白い浴槽とシャワーのあるバスルーム"
+						widths={[400, 680]}
+						sizes="(min-width: 900px) 30vw, 100vw"
+						quality={76}
+						format="webp"
+						loading="lazy"
+					/>
+					<figcaption>バスルーム</figcaption>
+				</figure>
+			</div>
+		</div>
+	</div>
+</section>

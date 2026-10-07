@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+import station from '../assets/images/IMG_2250.jpg';
+
+const mapQuery = '大阪府大阪市大正区三軒家東1-16-25';
+const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed&hl=ja`;
+const mapOpen = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+---
+
+<section class="section access" id="access">
+	<div class="wrap">
+		<div class="access__grid">
+			<div>
+				<SectionHead num="04" en="Access" title="迷わず、着くために。" />
+				<address class="access__address" data-reveal>
+					<span>〒551-0002</span>
+					大阪府大阪市大正区<br />三軒家東1-16-25
+				</address>
+				<ul class="access__routes" data-reveal>
+					<li>
+						<Icon name="train" />
+						<span>JR大阪環状線 大正駅<br />南口から徒歩1分</span>
+					</li>
+					<li>
+						<Icon name="train" />
+						<span>大阪メトロ長堀鶴見緑地線<br />大正駅 2番出口から徒歩1分</span>
+					</li>
+					<li>
+						<Icon name="pin" />
+						<span>駐車場はありません</span>
+					</li>
+				</ul>
+				<p class="access__phone" data-reveal>
+					<Icon name="phone" />
+					<a href="tel:+819036744149">090-3674-4149</a>
+				</p>
+			</div>
+			<div class="map" data-reveal>
+				<iframe
+					title="ALIYA Guesthouseの地図"
+					src={mapEmbed}
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<a class="map__open" href={mapOpen} target="_blank" rel="noopener noreferrer">
+					地図を開く
+					<Icon name="arrow" />
+				</a>
+			</div>
+		</div>
+		<figure class="guide" data-reveal>
+			<a href={station.src} target="_blank" rel="noopener noreferrer" aria-label="最寄り駅の案内を拡大して見る">
+				<Image
+					src={station}
+					alt="JR大正駅南口と、大阪メトロ大正駅2番出口の案内"
+					widths={[640, 950]}
+					sizes="(min-width: 900px) 860px, 100vw"
+					quality={88}
+					format="webp"
+					loading="lazy"
+				/>
+			</a>
+			<figcaption>最寄り駅</figcaption>
+		</figure>
+	</div>
+</section>

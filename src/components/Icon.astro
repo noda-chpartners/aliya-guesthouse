@@ -1,0 +1,169 @@
+---
+interface Props {
+	name:
+		| 'house'
+		| 'arrow'
+		| 'pin'
+		| 'train'
+		| 'phone'
+		| 'kitchen'
+		| 'fridge'
+		| 'washer'
+		| 'bath'
+		| 'bottle'
+		| 'tv'
+		| 'wifi'
+		| 'air'
+		| 'key'
+		| 'bed';
+}
+
+const { name } = Astro.props;
+---
+
+<svg
+	class="icon"
+	viewBox="0 0 24 24"
+	fill="none"
+	stroke="currentColor"
+	stroke-width="1.4"
+	stroke-linecap="round"
+	stroke-linejoin="round"
+	aria-hidden="true"
+>
+	{
+		name === 'house' && (
+			<>
+				<path d="M4 11.2 12 4l8 7.2" />
+				<path d="M7 10.2V20h10V10.2" />
+			</>
+		)
+	}
+	{
+		name === 'arrow' && (
+			<>
+				<path d="M4 12h16" />
+				<path d="M13 5l7 7-7 7" />
+			</>
+		)
+	}
+	{
+		name === 'pin' && (
+			<>
+				<path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" />
+				<circle cx="12" cy="10" r="1.6" />
+			</>
+		)
+	}
+	{
+		name === 'train' && (
+			<>
+				<rect x="6" y="3.5" width="12" height="12.5" rx="2" />
+				<path d="M6 9.5h12" />
+				<circle cx="9.2" cy="13" r="0.7" fill="currentColor" stroke="none" />
+				<circle cx="14.8" cy="13" r="0.7" fill="currentColor" stroke="none" />
+				<path d="M8.5 16.2 7 20.5M15.5 16.2 17 20.5" />
+			</>
+		)
+	}
+	{
+		name === 'phone' && (
+			<>
+				<rect x="7" y="2.5" width="10" height="19" rx="2" />
+				<path d="M11 18.5h2" />
+			</>
+		)
+	}
+	{
+		name === 'kitchen' && (
+			<>
+				<path d="M6 10h12" />
+				<path d="M8 10c.2 5 1.2 8 4 8s3.8-3 4-8" />
+				<path d="M12 4.5V8" />
+				<path d="M10 4.5h4" />
+			</>
+		)
+	}
+	{
+		name === 'fridge' && (
+			<>
+				<rect x="6" y="3" width="12" height="18" rx="1.4" />
+				<path d="M6 10.5h12" />
+				<path d="M9 6.5v1.6M9 13.5v2.4" />
+			</>
+		)
+	}
+	{
+		name === 'washer' && (
+			<>
+				<rect x="4.5" y="3" width="15" height="18" rx="1.5" />
+				<circle cx="12" cy="13" r="3.4" />
+				<path d="M8 6.2h2.2" />
+			</>
+		)
+	}
+	{
+		name === 'bath' && (
+			<>
+				<path d="M4 13h16v1.5a4.5 4.5 0 0 1-4.5 4.5h-7A4.5 4.5 0 0 1 4 14.5V13z" />
+				<path d="M7 13V8.2A2.2 2.2 0 0 1 9.2 6H11" />
+				<path d="M9.2 6V4" />
+			</>
+		)
+	}
+	{
+		name === 'bottle' && (
+			<>
+				<path d="M10 3h4v2.5l1.6 2.2V20H8.4V7.7L10 5.5V3z" />
+				<path d="M9.5 11h5" />
+			</>
+		)
+	}
+	{
+		name === 'tv' && (
+			<>
+				<rect x="3.5" y="5" width="17" height="11" rx="1.2" />
+				<path d="M8 20h8" />
+				<path d="M12 16v4" />
+			</>
+		)
+	}
+	{
+		name === 'wifi' && (
+			<>
+				<path d="M5 10c3.8-3.4 10.2-3.4 14 0" />
+				<path d="M8 13.2c2.2-1.8 5.8-1.8 8 0" />
+				<circle cx="12" cy="17" r="0.8" fill="currentColor" stroke="none" />
+			</>
+		)
+	}
+	{
+		name === 'air' && (
+			<>
+				<rect x="3" y="6" width="18" height="9" rx="1.2" />
+				<path d="M7 18.5v2M17 18.5v2" />
+				<path d="M6.5 10.5h11" />
+			</>
+		)
+	}
+	{
+		name === 'key' && (
+			<>
+				<circle cx="8" cy="10" r="3.2" />
+				<path d="M11 10.8 20 10.8" />
+				<path d="M17 10.8V14" />
+				<path d="M14.2 10.8v2.2" />
+			</>
+		)
+	}
+	{
+		name === 'bed' && (
+			<>
+				<path d="M3.5 18V8" />
+				<path d="M3.5 14.5h17V18" />
+				<path d="M20.5 18V11" />
+				<path d="M7 14.5V11h6.5v3.5" />
+			</>
+		)
+	}
+</svg>
