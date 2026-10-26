@@ -10,6 +10,7 @@
 	--header-h: 4.5rem;
 	--pad: clamp(1.25rem, 4vw, 3.5rem);
 	--serif: 'Cormorant Garamond', 'Times New Roman', serif;
+	--brand: Arial, Helvetica, sans-serif;
 	--mincho: 'Shippori Mincho', 'Yu Mincho', serif;
 	--gothic: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
 	--ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -227,9 +228,10 @@ ol {
 }
 
 .logo__name {
-	font-family: var(--serif);
+	font-family: var(--brand);
+	font-weight: 700;
 	font-size: 1.35rem;
-	letter-spacing: 0.14em;
+	letter-spacing: 0.04em;
 }
 
 .logo__sub {
@@ -464,11 +466,11 @@ ol {
 
 .hero__title {
 	margin-top: 0.35rem;
-	font-family: var(--serif);
-	font-weight: 500;
+	font-family: var(--brand);
+	font-weight: 700;
 	font-size: clamp(5rem, 16vw, 11.5rem);
-	line-height: 0.78;
-	letter-spacing: -0.035em;
+	line-height: 0.95;
+	letter-spacing: 0.025em;
 	text-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
 }
 
@@ -1060,7 +1062,8 @@ ol {
 }
 
 .footer__name {
-	font-family: var(--serif);
+	font-family: var(--brand);
+	font-weight: 700;
 	font-size: clamp(3rem, 6vw, 4.2rem);
 	line-height: 0.8;
 	letter-spacing: 0.04em;
